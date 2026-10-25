@@ -81,14 +81,15 @@ def load_course(name: str, filename: str) -> Course:
 
 
 if __name__ == "__main__":
-    test =Course("Test")
+    test = Course("Test")
     test.add_student("A", 50)
     test.add_student("B", 90)
 
-    print(test)
-    print("Total students:", len(test))
-    print("Average marks:", test.average())
-    print("Top student:", test.top_student())
-
     test.remove_student("A")
-print("After removing A:", test)
+    print("After removing A:", test)
+    print("Number of students:", len(test))
+
+    try:
+        test.remove_student("Zara")
+    except KeyError as e:
+        print("KeyError:", e)
